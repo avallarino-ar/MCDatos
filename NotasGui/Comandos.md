@@ -18,7 +18,7 @@ Comprueba si hemos modificado algo en la carpeta y que podemos añadir al reposi
 
 ## 4- add
 Podemos añadir los archivos uno a uno al repositorio con:
-> git add archivo1.txt
+> git add archivo1.txt  
 > git add archivo2.txt
 
 O podemos añadir todo de una vez con el comando:
