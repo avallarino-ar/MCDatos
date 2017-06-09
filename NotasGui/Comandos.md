@@ -1,8 +1,8 @@
 # Comandos Git
 ## Comandos para trabajar con Git en local
 
-## 1- clone
-> Clonar el repositorio en nuestra carpeta.
+## 1- clone 
+### Clonar el repositorio en nuestra carpeta. 
 > Comando "git clone".
 Ejemplo:
   git clone https://github.com/avallarino-ar/MCDatos
