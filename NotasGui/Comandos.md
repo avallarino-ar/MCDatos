@@ -32,4 +32,4 @@ El -m "mensaje de ayuda para la subida" es opcional, pero a larga es muy necessa
 
 ## 6- push
 Envía los cambios al repositorio:
-> git push <url del repositorio>
+> git push "url del repositorio"
