@@ -4,8 +4,8 @@
 ## 1- clone 
 #### Clonar el repositorio en nuestra carpeta. 
 > Comando "git clone".
-Ejemplo:
-  git clone https://github.com/avallarino-ar/MCDatos
+> Ejemplo:
+> git clone https://github.com/avallarino-ar/MCDatos
 
 ## 2- init
 El primer paso es inicializar el repositorio, para git pueda saber que hacemos dentro de la carpeta. Para ello abrimos la terminal, nos vamos a nuestra carpeta con el comando "cd nombre_carpeta" y ejecutamos luego el comando "git init"
