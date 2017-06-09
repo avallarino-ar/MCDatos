@@ -9,7 +9,7 @@ Comando: git clone "url del repositorio".
 ## 2- init
 El primer paso es inicializar el repositorio, para git pueda saber que hacemos dentro de la carpeta. Para ello abrimos la terminal, nos vamos a nuestra carpeta con el comando "cd nombre_carpeta" y ejecutamos luego el comando "git init".  
 
-> cd repo-ejemplo  
+> cd MCDatos 
 > git init  
 
 ## 3- status
@@ -31,5 +31,5 @@ Para subir los cambios al repositorio vamos a usar el siguiente comando
 El -m "mensaje de ayuda para la subida" es opcional, pero a larga es muy necessario para saber que se ha hecho en esa subida, así que usadlo si o si por favor.
 
 ## 6- push
-Envía los cambios al repositorio:
-> git push "url del repositorio"
+Enviar los cambios al repositorio: git push "url del repositorio"  
+> git push https://github.com/avallarino-ar/MCDatos
