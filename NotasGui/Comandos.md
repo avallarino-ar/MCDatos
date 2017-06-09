@@ -1,2 +1,3 @@
-# MCDatos
-Repositorio de Maestría en Ciencia de Datos
+# Comandos Git
+## Comandos para trabajar con Git en local
+### Clonar, Actualizar
