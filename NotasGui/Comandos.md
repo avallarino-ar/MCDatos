@@ -3,7 +3,7 @@
 
 ## 1- clone
 > Clonar el repositorio en nuestra carpeta.
-> Comando "git clone"
+> Comando "git clone".
 Ejemplo:
   git clone https://github.com/avallarino-ar/MCDatos
 
