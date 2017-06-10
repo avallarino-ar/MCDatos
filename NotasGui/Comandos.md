@@ -36,4 +36,4 @@ Enviar los cambios al repositorio: git push "url del repositorio"
 
 ## 7- Pull
 Para actualizar tu repositorio local al último commit, ejecutar git pull en tu directorio local.
-> gil pull
+> git pull
