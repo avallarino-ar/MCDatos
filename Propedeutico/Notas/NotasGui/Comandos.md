@@ -22,7 +22,7 @@ Podemos añadir los archivos uno a uno al repositorio con:
 > git add archivo2.txt
 
 O podemos añadir todo de una vez con el comando:
-> git add -A
+> git add -A  
 > git add .
 
 ## 5- commit
