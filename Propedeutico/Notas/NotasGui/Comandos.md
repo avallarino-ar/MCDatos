@@ -1,7 +1,7 @@
 # Comandos Git
 
 ## 1- clone 
-Clonar el repositorio en nuestra carpeta.  
+Una vez creado nuestro repositorio en GitHub podemos crear un copia local. 
 Comando: git clone "url del repositorio".  
 > Ejemplo:  
 > git clone https://github.com/username/MCDatos.git
@@ -12,11 +12,7 @@ El primer paso es inicializar el repositorio, para que git pueda saber que hacem
 > cd MCDatos  
 > git init  
 
-## 3- status
-Comprueba si hemos modificado algo en la carpeta y que podemos añadir al repositorio. 
-> git status
-
-## 4- add  
+## 3- add  
 Permite añadir nuevos archivos y/o modificaciones a los existentes en el repositorio.  
 Se puede hacer archivo por archivo:
 > git add archivo1.txt  
@@ -27,15 +23,20 @@ O podemos añadir todo de una vez con el comando:
 o  
 > git add .
 
-## 5- commit
+## 4- commit
 Para enviar los cambios al repositorio vamos a usar el siguiente comando:
 > git commit -m "mensaje de ayuda para la subida"
 
 El -m "mensaje de ayuda para la subida" es opcional, pero a larga es muy necessario para saber que se ha hecho en esa subida, así que usadlo si o si por favor.
 
-## 6- push
+## 5- push
 Sube los cambios al repositorio: git push "url del repositorio"  
 > git push https://github.com/username/MCDatos.git
+
+
+## 6- status
+Comprueba si hemos modificado algo en la carpeta y que podemos añadir al repositorio. 
+> git status
 
 ## 7- Pull
 Para actualizar tu repositorio local al último commit, ejecutar git pull en tu directorio local.
