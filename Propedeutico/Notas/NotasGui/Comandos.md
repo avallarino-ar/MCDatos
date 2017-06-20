@@ -41,4 +41,11 @@ Para actualizar tu repositorio local al último commit, ejecutar git pull en tu 
 
 # En caso de no se dueño de la cuenta:  
 1.- Fork: Permite traer a nuestra cuenta el repositorio a modificar.  
-2.- Clone: clonar a nuesto  repositorio local para poder modificarlo
+2.- Clone: en el terminat nos posicionamos en el directorio de trabajo y lo clonamos a nuesto repositorio local para poder modificarlo  
+> git clone https://github.com/avallarino-ar/PropedeuticoDataScience2017.git  
+3.- Hacer los cambios en el dir. local  
+4.- Subir cambios a nuestra cuenta:  
+> git push  
+> git add -A
+> git commit -m "descripcion de la modificación"
+> git push
