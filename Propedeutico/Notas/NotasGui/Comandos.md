@@ -1,18 +1,19 @@
 # Comandos Git
+## 1- Flujo basico
 
-## 1- clone 
+## 1.1- clone 
 Una vez creado nuestro repositorio en GitHub podemos crear un copia local.   
 Comando: git clone "url del repositorio".  
 > Ejemplo:  
 > git clone https://github.com/username/MCDatos.git
 
-## 2- init
+## 1.2- init
 El primer paso es inicializar el repositorio, para que git pueda saber que hacemos dentro de la carpeta. Para ello abrimos la terminal, nos vamos al directorio de trabajo "cd nombre_carpeta" y ejecutamos luego el comando "git init".  
 
 > cd MCDatos  
 > git init  
 
-## 3- add  
+## 1.3- add  
 Permite añadir nuevos archivos y/o modificaciones a los existentes en el repositorio.  
 Se puede hacer archivo por archivo:
 > git add archivo1.txt  
@@ -23,26 +24,27 @@ O podemos añadir todo de una vez con el comando:
 o  
 > git add .
 
-## 4- commit
+## 1.4- commit
 Para enviar los cambios al repositorio vamos a usar el siguiente comando:
 > git commit -m "mensaje de ayuda para la subida"
 
 El -m "mensaje de ayuda para la subida" es opcional, pero a larga es muy necessario para saber que se ha hecho en esa subida, así que usadlo si o si por favor.
 
-## 5- push
+## 1.5- push
 Sube los cambios al repositorio: git push "url del repositorio"  
 > git push https://github.com/username/MCDatos.git
 
 
-## 6- status
+## 2- Validación y Actualización:
+## 2.1- status
 Comprueba si hemos modificado algo en la carpeta y que podemos añadir al repositorio. 
 > git status
 
-## 7- Pull
+## 2.2- Pull
 Para actualizar tu repositorio local al último commit, ejecutar git pull en tu directorio local.
 > git pull
 
-# Fork  
+# 3- Fork  
 ### Permite trabajar con un repositorio del cual no somos dueños.
 1.- Fork: Permite traer a nuestra cuenta el repositorio a modificar.  
 2.- Clone: en el terminat nos posicionamos en el directorio de trabajo y lo clonamos a nuesto repositorio local para poder modificarlo  
@@ -57,7 +59,7 @@ Para actualizar tu repositorio local al último commit, ejecutar git pull en tu 
 
 5.- En el Hub crear Pull Request
 
-# Actualizar un proyecto "forkeado" en Github  
+# 4- Actualizar un proyecto "forkeado" en Github  
 
 Cuando realizamos el fork de un proyecto en Github para realizar algún cambio al proyecto y realizar un Pull Request con nuestras modificaciones suele pasar que el proyecto del que realizamos el fork ya fue actualizado muchas veces y nuestros cambios podrían entrar en conflicto. Para evitar esto es conveniente realizar la actualización de nuestro repositorio forkeado, para lo cuál podemos hacer lo siguiente:  
 
