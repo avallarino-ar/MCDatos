@@ -9,7 +9,7 @@ Comando: git clone "url del repositorio".
 ## 2- init
 El primer paso es inicializar el repositorio, para git pueda saber que hacemos dentro de la carpeta. Para ello abrimos la terminal, nos vamos a nuestra carpeta con el comando "cd nombre_carpeta" y ejecutamos luego el comando "git init".  
 
-> cd MCDatos 
+> cd MCDatos  
 > git init  
 
 ## 3- status
