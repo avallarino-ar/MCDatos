@@ -54,7 +54,6 @@ En la terminal nos posicionamos en el directorio de trabajo y lo clonamos a nues
 
 ### 3.3.- Hacer los cambios en el dir. local  
 ### 3.4.- Subir cambios a nuestro repositorio:  
-> git push    
 > git add -A       
 > git commit -m "descripcion de la modificación"  
 > git push https://github.com/username/fork/proyecto.git
