@@ -46,21 +46,23 @@ Para actualizar tu repositorio local al último commit, ejecutar git pull en tu 
 
 ## 3- Fork  
 ### Permite trabajar con un repositorio del cual no somos dueños.
-1.- Fork: Permite traer a nuestra cuenta el repositorio a modificar.  
-2.- Clone: en el terminat nos posicionamos en el directorio de trabajo y lo clonamos a nuesto repositorio local para poder modificarlo  
+### 3.1.- Fork
+Permite traer a nuestra cuenta el repositorio a modificar.  
+### 3.2.- Clone
+En la terminal nos posicionamos en el directorio de trabajo y lo clonamos a nuesto repositorio local para poder modificarlo  
 > git clone https://github.com/username/fork/proyecto.git  
 
-3.- Hacer los cambios en el dir. local  
-4.- Subir cambios a nuestra cuenta:  
+### 3.3.- Hacer los cambios en el dir. local  
+### 3.4.- Subir cambios a nuestro repositorio:  
 > git push    
 > git add -A       
 > git commit -m "descripcion de la modificación"  
-> git push  
+> git push https://github.com/username/fork/proyecto.git
 
-5.- En el Hub crear Pull Request
+### 3.5.- Pull Request
+En nuestro repositorio debemos crear un Pull Request para que el propietario del repositorio origianl incorpore los cambios.
 
 ## 4- Actualizar un proyecto "forkeado" en Github  
-
 Cuando realizamos el fork de un proyecto en Github para realizar algún cambio al proyecto y realizar un Pull Request con nuestras modificaciones suele pasar que el proyecto del que realizamos el fork ya fue actualizado muchas veces y nuestros cambios podrían entrar en conflicto. Para evitar esto es conveniente realizar la actualización de nuestro repositorio forkeado, para lo cuál podemos hacer lo siguiente:  
 
 Una vez realizado el fork del proyecto, lo que normalmente hacemos es clonar nuestro proyecto:  
