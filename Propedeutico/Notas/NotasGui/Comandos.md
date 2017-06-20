@@ -39,7 +39,7 @@ Enviar los cambios al repositorio: git push "url del repositorio"
 Para actualizar tu repositorio local al último commit, ejecutar git pull en tu directorio local.
 > git pull
 
-# En caso de no se dueño de la cuenta:  
+# En caso de no ser dueño de la cuenta:  
 1.- Fork: Permite traer a nuestra cuenta el repositorio a modificar.  
 2.- Clone: en el terminat nos posicionamos en el directorio de trabajo y lo clonamos a nuesto repositorio local para poder modificarlo  
 > git clone https://github.com/avallarino-ar/PropedeuticoDataScience2017.git  
