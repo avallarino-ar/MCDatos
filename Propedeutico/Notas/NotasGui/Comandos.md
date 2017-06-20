@@ -40,7 +40,7 @@ Para actualizar tu repositorio local al último commit, ejecutar git pull en tu 
 > git pull
 
 # Fork  
-## Permite trabajar con un repositorio del cual no somos dueños.
+### Permite trabajar con un repositorio del cual no somos dueños.
 1.- Fork: Permite traer a nuestra cuenta el repositorio a modificar.  
 2.- Clone: en el terminat nos posicionamos en el directorio de trabajo y lo clonamos a nuesto repositorio local para poder modificarlo  
 > git clone https://github.com/avallarino-ar/PropedeuticoDataScience2017.git  
