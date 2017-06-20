@@ -1,7 +1,7 @@
 # Comandos Git
 
 ## 1- clone 
-Una vez creado nuestro repositorio en GitHub podemos crear un copia local. 
+Una vez creado nuestro repositorio en GitHub podemos crear un copia local.   
 Comando: git clone "url del repositorio".  
 > Ejemplo:  
 > git clone https://github.com/username/MCDatos.git
