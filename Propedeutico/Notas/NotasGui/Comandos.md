@@ -38,3 +38,7 @@ Enviar los cambios al repositorio: git push "url del repositorio"
 ## 7- Pull
 Para actualizar tu repositorio local al último commit, ejecutar git pull en tu directorio local.
 > git pull
+
+# En caso de no se dueño de la cuenta:  
+1.- Fork: Permite traer a nuestra cuenta el repositorio a modificar.  
+2.- Clone: clonar a nuesto  repositorio local para poder modificarlo
