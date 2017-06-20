@@ -46,9 +46,9 @@ Para actualizar tu repositorio local al último commit, ejecutar git pull en tu 
 
 3.- Hacer los cambios en el dir. local  
 4.- Subir cambios a nuestra cuenta:  
+> git push    
+> git add -A       
+> git commit -m "descripcion de la modificación"  
 > git push  
-> git add -A
-> git commit -m "descripcion de la modificación"
-> git push
 
 5.- En el Hub crear Pull Request
