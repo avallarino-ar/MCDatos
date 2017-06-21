@@ -9,8 +9,7 @@ Permite hacer una copia del repositorio a un directorio local.
 > git clone https://github.com/your-username/your-repository.git
 
 ### 1.2- init
-El primer paso es inicializar el repositorio, para que git pueda saber qué hacemos dentro de la carpeta. Para ello abrimos la terminal, nos ubicamos en el directorio de trabajo "cd nombre_carpeta" y ejecutamos el comando "git init".  
-
+El primer paso es inicializar el repositorio, para que git pueda saber qué hacemos dentro de la carpeta. Para ello abrimos la terminal, nos ubicamos en el directorio de trabajo "cd nombre_carpeta" y ejecutamos el comando **git init"**.  
 > cd your-repository  
 > git init  
 
@@ -22,14 +21,14 @@ Se puede hacer archivo por archivo:
 
 O podemos añadir todo de una vez con el comando:
 > git add -A  
-. otra opcion es:  
+*otra opcion es:*    
 > git add .  
 
 ### 1.4- commit
 Para enviar los cambios al repositorio vamos a usar el siguiente comando:
 > git commit -m "Descripción del contenido"
 
-El -m "mensaje de ayuda para la subida" es opcional, pero a larga es muy necessario para saber que se ha hecho en esa subida, así que usadlo si o si por favor.
+El **-m** "mensaje de ayuda para la subida" es opcional, pero a larga es muy necessario para saber que se ha hecho en esa subida, así que usadlo si o si por favor.
 
 ### 1.5- push
 Sube los cambios al repositorio:
@@ -38,7 +37,7 @@ Sube los cambios al repositorio:
 
 ## 2- Validación y Actualización:
 ### 2.1- status
-Comprueba diferencias entre el repositorio y el directorio local:
+Comprobar diferencias entre el repositorio y el directorio local:
 > git status
 
 ### 2.2- Pull
@@ -48,21 +47,21 @@ Para actualizar el repositorio local al último commit, ejecutar git pull en nue
 ## 3- Fork  
 ### Permite trabajar con un repositorio del cual no somos dueños.
 ### 3.1.- Fork
-Desde GitHub debemos generar un Fork en el repositorio que queremos trabajar para que nos permita descargarnos nuestra copia local.  
+Desde GitHub debemos generar un **Fork** en el repositorio que queremos trabajar para que nos permita descargarnos nuestra copia local.  
 ### 3.2.- Clone
 En la terminal nos posicionamos en el directorio de trabajo y lo clonamos a nuesto repositorio local para poder modificarlo  
 > git clone https://github.com/your-username/fork-proyect.git  
 
 ### 3.3.- Hacer los cambios en el dir. local  
-### 3.4.- Subir cambios a nuestro repositorio (forkeado):  
+### 3.4.- Subir cambios a nuestro repositorio *"forkeado"*:  
 > git add -A       
 > git commit -m "descripcion de la modificación"  
 > git push https://github.com/your-username/fork-proyect.git  
 
 ### 3.5.- Pull Request
-En nuestro repositorio debemos crear un Pull Request para que el propietario del repositorio origianl incorpore los cambios.
+En nuestro repositorio debemos crear un **Pull Request** para que el propietario del repositorio origianl incorpore los cambios.
 
-## 4- Actualizar un proyecto "forkeado" en Github  
+## 4- Actualizar un proyecto *"forkeado"* en Github  
 Cuando realizamos el fork de un proyecto en Github para realizar algún cambio al proyecto y realizar un Pull Request con nuestras modificaciones suele pasar que el proyecto del que realizamos el fork ya fue actualizado muchas veces y nuestros cambios podrían entrar en conflicto. Para evitar esto es conveniente realizar la actualización de nuestro repositorio forkeado, para lo cuál podemos hacer lo siguiente:  
 
 Una vez realizado el fork del proyecto, lo que normalmente hacemos es clonar nuestro proyecto:  
