@@ -22,7 +22,7 @@ Se puede hacer archivo por archivo:
 
 O podemos añadir todo de una vez con el comando:
 > git add -A  
-. otra opcion es:
+. otra opcion es:  
 > git add .  
 
 ### 1.4- commit
@@ -67,12 +67,12 @@ Cuando realizamos el fork de un proyecto en Github para realizar algún cambio a
 
 Una vez realizado el fork del proyecto, lo que normalmente hacemos es clonar nuestro proyecto:  
 
-> git clone https://github.com/username/fork/proyecto.git    
+> git clone https://github.com/your-username/fork-repository.git    
 > cd proyecto  
 
 Lo que tenemos que hacer después es agregar el repositorio padre como un origen remoto.  
 
-> git remote add upstream https://github.com/original/proyecto.git  
+> git remote add upstream https://github.com/original/fork-repository.git 
 > git fetch upstream  
 
 Con el último comando lo que hicimos fue hacer un Pull a los cambios que hay en el repositorio original pero sin mezclarlo en nuestra repositorio.  
