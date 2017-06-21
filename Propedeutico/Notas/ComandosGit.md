@@ -1,62 +1,63 @@
 # Comandos Git
-## 1- Flujo basico
+## 1- Flujo básico
+
+Una vez creado nuestro repositorio en GitHub, para realizar una copia y poder trabajar en forma local debemos ejecutar los siguientes comandos:  
 
 ### 1.1- clone 
-Una vez creado nuestro repositorio en GitHub podemos crear un copia local.   
-Comando: git clone "url del repositorio".  
+Permite hacer una copia del repositorio a un directorio local.
 > Ejemplo:  
-> git clone https://github.com/username/MCDatos.git
+> git clone https://github.com/your-username/your-repository.git
 
 ### 1.2- init
-El primer paso es inicializar el repositorio, para que git pueda saber que hacemos dentro de la carpeta. Para ello abrimos la terminal, nos vamos al directorio de trabajo "cd nombre_carpeta" y ejecutamos luego el comando "git init".  
+El primer paso es inicializar el repositorio, para que git pueda saber qué hacemos dentro de la carpeta. Para ello abrimos la terminal, nos ubicamos en el directorio de trabajo "cd nombre_carpeta" y ejecutamos el comando "git init".  
 
-> cd MCDatos  
+> cd your-repository  
 > git init  
 
 ### 1.3- add  
-Permite añadir nuevos archivos y/o modificaciones a los existentes en el repositorio.  
+Luego de realizar nuestros cambios en forma local, ya sea creando nuevos archivos y/o modificaciones los existentes, debemos agregar los cambios al reposiotrio.   
 Se puede hacer archivo por archivo:
 > git add archivo1.txt  
 > git add archivo2.txt
 
 O podemos añadir todo de una vez con el comando:
 > git add -A  
-o  
-> git add .
+. otra opcion es:
+> git add .  
 
 ### 1.4- commit
 Para enviar los cambios al repositorio vamos a usar el siguiente comando:
-> git commit -m "mensaje de ayuda para la subida"
+> git commit -m "Descripción del contenido"
 
 El -m "mensaje de ayuda para la subida" es opcional, pero a larga es muy necessario para saber que se ha hecho en esa subida, así que usadlo si o si por favor.
 
 ### 1.5- push
-Sube los cambios al repositorio: git push "url del repositorio"  
-> git push https://github.com/username/MCDatos.git
+Sube los cambios al repositorio:
+> git push https://github.com/your-username/your-repository.git
 
 
 ## 2- Validación y Actualización:
 ### 2.1- status
-Comprueba si hemos modificado algo en la carpeta y que podemos añadir al repositorio. 
+Comprueba diferencias entre el repositorio y el directorio local:
 > git status
 
 ### 2.2- Pull
-Para actualizar tu repositorio local al último commit, ejecutar git pull en tu directorio local.
+Para actualizar el repositorio local al último commit, ejecutar git pull en nuestro directorio local.
 > git pull
 
 ## 3- Fork  
 ### Permite trabajar con un repositorio del cual no somos dueños.
 ### 3.1.- Fork
-Permite traer a nuestra cuenta el repositorio a modificar.  
+Desde GitHub debemos generar un Fork en el repositorio que queremos trabajar para que nos permita descargarnos nuestra copia local.  
 ### 3.2.- Clone
 En la terminal nos posicionamos en el directorio de trabajo y lo clonamos a nuesto repositorio local para poder modificarlo  
-> git clone https://github.com/username/fork/proyecto.git  
+> git clone https://github.com/your-username/fork-proyect.git  
 
 ### 3.3.- Hacer los cambios en el dir. local  
-### 3.4.- Subir cambios a nuestro repositorio:  
+### 3.4.- Subir cambios a nuestro repositorio (forkeado):  
 > git add -A       
 > git commit -m "descripcion de la modificación"  
-> git push https://github.com/username/fork/proyecto.git
+> git push https://github.com/your-username/fork-proyect.git  
 
 ### 3.5.- Pull Request
 En nuestro repositorio debemos crear un Pull Request para que el propietario del repositorio origianl incorpore los cambios.
