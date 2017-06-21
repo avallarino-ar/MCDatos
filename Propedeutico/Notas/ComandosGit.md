@@ -26,9 +26,9 @@ O podemos añadir todo de una vez con el comando:
 
 ### 1.4- commit
 Para enviar los cambios al repositorio vamos a usar el siguiente comando:
-> git commit -m "Descripción del contenido"
+> git commit -m "Descripción del contenido de la subida"
 
-El **-m** "mensaje de ayuda para la subida" es opcional, pero a larga es muy necessario para saber que se ha hecho en esa subida, así que usadlo si o si por favor.
+El **-m "Descripción del contenido de la subida"** es opcional, pero a larga es muy necessario para saber que se ha hecho en esa subida, así que usadlo si o si por favor.
 
 ### 1.5- push
 Sube los cambios al repositorio:
