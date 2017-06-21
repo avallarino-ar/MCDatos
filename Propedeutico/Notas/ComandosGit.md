@@ -9,7 +9,7 @@ Permite hacer una copia del repositorio a un directorio local.
 > git clone https://github.com/your-username/your-repository.git
 
 ### 1.2- init
-El primer paso es inicializar el repositorio, para que git pueda saber qué hacemos dentro de la carpeta. Para ello abrimos la terminal, nos ubicamos en el directorio de trabajo "cd nombre_carpeta" y ejecutamos el comando **git init"**.  
+El primer paso es inicializar el repositorio, para que git pueda saber qué hacemos dentro de la carpeta. Para ello abrimos la terminal, nos ubicamos en el directorio de trabajo "cd nombre_carpeta" y ejecutamos el comando **git init**.  
 > cd your-repository  
 > git init  
 
@@ -66,12 +66,12 @@ Cuando realizamos el fork de un proyecto en Github para realizar algún cambio a
 
 Una vez realizado el fork del proyecto, lo que normalmente hacemos es clonar nuestro proyecto:  
 
-> git clone https://github.com/your-username/fork-repository.git    
+> git clone https://github.com/your-username/fork-repository.git      
 > cd proyecto  
 
 Lo que tenemos que hacer después es agregar el repositorio padre como un origen remoto.  
 
-> git remote add upstream https://github.com/original/fork-repository.git 
+> git remote add upstream https://github.com/original/fork-repository.git   
 > git fetch upstream  
 
 Con el último comando lo que hicimos fue hacer un Pull a los cambios que hay en el repositorio original pero sin mezclarlo en nuestra repositorio.  
