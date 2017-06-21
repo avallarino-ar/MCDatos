@@ -41,7 +41,7 @@ Comprobar diferencias entre el repositorio y el directorio local:
 > git status
 
 ### 2.2- Pull
-Para actualizar el repositorio local al último commit, ejecutar git pull en nuestro directorio local.
+Permite actualizar el repositorio local al último commit.  
 > git pull
 
 ## 3- Fork  
