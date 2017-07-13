@@ -1,9 +1,10 @@
 Parkinsons Telemonitoring Data Set  
 
+Link: https://archive.ics.uci.edu/ml/datasets/Parkinsons+Telemonitoring
+
 Abstract: Oxford Parkinson's Disease Telemonitoring Dataset
 
 ============================================================
-
 Data Set Characteristics:  Multivariate
 Attribute Characteristics:  Integer, Real
 Associated Tasks:  Regression
@@ -11,7 +12,6 @@ Number of Instances:  5875
 Number of Attributes:  26
 Area:  Life
 Date Donated:  2009-10-29
-
 ============================================================
 
 SOURCE:
@@ -23,9 +23,7 @@ developed the telemonitoring device to record the speech signals. The
 original study used a range of linear and nonlinear regression methods to 
 predict the clinician's Parkinson's disease symptom score on the UPDRS scale.
 
-
 ============================================================
-
 DATA SET INFORMATION:
 
 This dataset is composed of a range of biomedical voice measurements from 42 
@@ -60,7 +58,6 @@ Max A. Little, Patrick E. McSharry, Eric J. Hunter, Lorraine O. Ramig (2009),
 disease',
 IEEE Transactions on Biomedical Engineering, 56(4):1015-1022 
 
- 
 ===========================================================
 
 ATTRIBUTE INFORMATION:
@@ -80,7 +77,6 @@ NHR,HNR - Two measures of ratio of noise to tonal components in the voice
 RPDE - A nonlinear dynamical complexity measure
 DFA - Signal fractal scaling exponent
 PPE - A nonlinear measure of fundamental frequency variation 
-
 
 ===========================================================
 
