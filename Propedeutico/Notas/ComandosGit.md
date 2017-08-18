@@ -82,3 +82,14 @@ Si queremos actualizar nuestro repositorio con los cambios del repositorio padre
 > git merge upstream/master  
 
 Con eso estamos mezclando la rama master del repositorio padre, a nuestra rama, si queremos mezclar otra rama loa cambiamos en el último comando.  
+
+---
+**git checkout**: cambiar de rama en el repositorio local  
+si no existe se ejecuta con **git checkout -b**  
+
+**branch** Listar las ramas qeu existen en el repositorio
+**git branch** ver el cheat sheet para todas las opciones
+
+**merge**
+
+**stash**
