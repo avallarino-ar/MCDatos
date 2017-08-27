@@ -1,0 +1,87 @@
+---
+title: "NotasR"
+author: "AVallarino"
+date: "27/8/2017"
+output: html_document
+---
+
+---  
+
+**Verificar instalación de paquete**  
+Valida si un paquete se encuentra instalado. Si no lo está, lo instala.  
+```{r}
+if(!require(dplyr, quietly = TRUE, warn.conflicts = FALSE) ){
+    install.packages('dplyr',
+	    dependencies = TRUE, 
+	    repos = "http://cran.us.r-project.org")
+}
+
+library(tidyverse)
+```
+
+---  
+
+**Caputrar excepxión al leer un archivo:**  
+Lee un archivo en el directorio de trabajo. Si el archivo no existe, lo descarga al directorio y lo abre.  
+```{r}
+# Armo array con nombres:
+c_names <- c("CRIM", "ZN", "INDUS", "CHAS", "NOX", "RM", "AGE", "DIS", "RAD", "TAX", "PTRATIO", "B", "LSTAT", "MEDV")
+
+# Cargo archivo de datos y agrego nommbres de columnas:
+dat_housing <- try(read.table("housing.dat", header = FALSE, col.names = c_names))
+
+if (inherits(dat_housing, "try-error")) {
+  # Descargo datos en directorio de trabajo - Indico nombre destino:
+  download.file(
+    "https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data",
+    "housing.dat")
+  dat_housing <- read.table("housing.dat", header = FALSE, col.names = c_names)
+} 
+
+head(dat_housing)
+```
+
+---  
+
+**Descargo .ZIP y lo descomprimo**  
+```{r}
+# URL con .zip
+url <- "https://dl.dropboxusercontent.com/u/1351973/est-comp-17/02-tarea.zip"
+
+# Defino directorios temporales:
+temp <- tempfile()
+temp2 <- tempfile()
+
+# Obtengo archivo .zip y lo descomprimo:
+download.file(url, temp)
+unzip(zipfile = temp, exdir = temp2)
+
+# Obtengo listado de archivos:
+temp3 <- paste(temp2, "/02-tarea", sep = "")
+csv_list <- list.files(temp3, pattern = "*.csv")
+
+print("- Lista de archivos .CSV:")
+csv_list
+```
+
+**Cargo listado de archivos del directorio descomprimido**
+```{r}
+i <- 0
+# Recorro la lista de Archivos y obtengo los datos:
+for(file in csv_list) {
+  i <- i + 1 
+  data_tmp <- read_csv(file.path(temp3, file), col_types = cols())
+  data_tmp$annio <- substr(file, 1, 4)      # Agrego columna ANNIO para identificar los datos de cada archivo
+  
+  if(i == 1) {
+    data_200x <- data_tmp                   # Agrego datos al DataFrame general
+  } else {
+    data_200x <- rbind(data_200x, data_tmp) # Agrego datos al DataFrame general
+  }
+}
+
+head(data_200x)
+```
+
+
+---  
