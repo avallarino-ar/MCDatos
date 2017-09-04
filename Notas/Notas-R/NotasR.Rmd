@@ -46,7 +46,7 @@ head(dat_housing)
 **Descargo .ZIP y lo descomprimo**  
 ```{r}
 # URL con .zip
-url <- "https://dl.dropboxusercontent.com/u/1351973/est-comp-17/02-tarea.zip"
+url <- "https://www.dropbox.com/s/7q8ohggjm8bw5m2/02-tarea.zip?dl=1"
 
 # Defino directorios temporales:
 temp <- tempfile()
@@ -66,21 +66,24 @@ csv_list
 
 **Cargo listado de archivos del directorio descomprimido**
 ```{r}
-i <- 0
-# Recorro la lista de Archivos y obtengo los datos:
-for(file in csv_list) {
-  i <- i + 1 
-  data_tmp <- read_csv(file.path(temp3, file), col_types = cols())
-  data_tmp$annio <- substr(file, 1, 4)      # Agrego columna ANNIO para identificar los datos de cada archivo
-  
-  if(i == 1) {
-    data_200x <- data_tmp                   # Agrego datos al DataFrame general
-  } else {
-    data_200x <- rbind(data_200x, data_tmp) # Agrego datos al DataFrame general
-  }
-}
+# Obtengo listado de archivos (nombre completo)
+paths <- dir(temp3, pattern = "\\.csv$", full.names = TRUE) 
+paths <- set_names(paths, basename(paths))
 
-head(data_200x)
+# Cargo los datos de todos los .csv en un solo DataFrame:
+data_200x_orig <- map_df(paths, ~read_csv(., col_types = cols(
+  edo = col_character(),
+  trans_Total = col_double(),
+  trans_Mujeres = col_double(),
+  trans_Hombres = col_double(),
+  noTrans_Total = col_double(),
+  noTrans_Mujeres = col_double(),
+  noTrans_Hombres = col_double(),
+  lesiones_Total = col_double(),
+  lesiones_Mujeres = col_double(),
+  lesiones_Hombres = col_double())), .id = "filename")
+
+head(data_200x_orig)
 ```
 
 
