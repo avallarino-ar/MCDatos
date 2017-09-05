@@ -43,7 +43,9 @@ head(dat_housing)
 
 ---  
 
-**Descargo .ZIP y lo descomprimo**  
+#### Descargo .ZIP y lo descomprimo
+#####Opción 1:
+Del .zip obtengo lista de archivos .csv:
 ```{r}
 # URL con .zip
 url <- "https://www.dropbox.com/s/7q8ohggjm8bw5m2/02-tarea.zip?dl=1"
@@ -64,7 +66,7 @@ print("- Lista de archivos .CSV:")
 csv_list
 ```
 
-**Cargo listado de archivos del directorio descomprimido**
+#####Cargo listado de archivos del directorio descomprimido
 ```{r}
 # Obtengo listado de archivos (nombre completo)
 paths <- dir(temp3, pattern = "\\.csv$", full.names = TRUE) 
@@ -85,6 +87,40 @@ data_200x_orig <- map_df(paths, ~read_csv(., col_types = cols(
 
 head(data_200x_orig)
 ```
+
+
+
+#####Opción 1:
+Cargo archivos .csv del directorio descomprimido:
+```{r}
+# URL con .zip
+url <- "https://data.diegovalle.net/hoyodecrimen/cuadrantes.csv.zip"
+
+# Defino directorios temporales:
+temp <- tempfile()
+temp2 <- tempfile()
+
+# Obtengo archivo .zip y lo descomprimo:
+download.file(url, temp)
+unzip(zipfile = temp, exdir = temp2)
+
+# Obtengo archivos con los datos:
+crime_lat_long <- read_csv(file.path(temp2, "/clean-data/crime-lat-long.csv"), col_types = cols())
+crime_lat_long <- arrange(crime_lat_long, date, cuadrante, crime)
+head(crime_lat_long, n=10)
+
+cuad_hdcrime <- read_csv(file.path(temp2, "/clean-data/cuadrantes-hoyodecrimen.csv"), col_types = cols())
+cuad_hdcrime <- arrange(cuad_hdcrime, date, cuadrante, crime)
+head(cuad_hdcrime)
+```
+
+
+---   
+
+####Paquetes:  
+.- lubridate: librería para trabajar con Fechas y Tiempo.  
+.- profvis:  La función system.time supone que sabes donde buscar, es decir, que expresiones debes evaluar, una función que puede ser más útil cuando uno desconoce cuál es la función que alenta un programa es `profvis()` (paquete `profvis).  
+.- 
 
 
 ---  

@@ -180,9 +180,13 @@ head(dat_housing)</code></pre>
 ## 5  5.33 36.2
 ## 6  5.21 28.7</code></pre>
 <hr />
-<p><strong>Descargo .ZIP y lo descomprimo</strong></p>
+<div id="descargo-.zip-y-lo-descomprimo" class="section level4">
+<h4>Descargo .ZIP y lo descomprimo</h4>
+<div id="opcion-1" class="section level5">
+<h5>Opción 1:</h5>
+<p>Del .zip obtengo lista de archivos .csv:</p>
 <pre class="r"><code># URL con .zip
-url &lt;- &quot;https://dl.dropboxusercontent.com/u/1351973/est-comp-17/02-tarea.zip&quot;
+url &lt;- &quot;https://www.dropbox.com/s/7q8ohggjm8bw5m2/02-tarea.zip?dl=1&quot;
 
 # Defino directorios temporales:
 temp &lt;- tempfile()
@@ -201,35 +205,104 @@ print(&quot;- Lista de archivos .CSV:&quot;)</code></pre>
 <pre class="r"><code>csv_list</code></pre>
 <pre><code>## [1] &quot;2000.csv&quot; &quot;2001.csv&quot; &quot;2002.csv&quot; &quot;2003.csv&quot; &quot;2004.csv&quot; &quot;2005.csv&quot;
 ## [7] &quot;2006.csv&quot; &quot;2007.csv&quot; &quot;2008.csv&quot;</code></pre>
-<p><strong>Cargo listado de archivos del directorio descomprimido</strong></p>
-<pre class="r"><code>i &lt;- 0
-# Recorro la lista de Archivos y obtengo los datos:
-for(file in csv_list) {
-  i &lt;- i + 1 
-  data_tmp &lt;- read_csv(file.path(temp3, file), col_types = cols())
-  data_tmp$annio &lt;- substr(file, 1, 4)      # Agrego columna ANNIO para identificar los datos de cada archivo
-  
-  if(i == 1) {
-    data_200x &lt;- data_tmp                   # Agrego datos al DataFrame general
-  } else {
-    data_200x &lt;- rbind(data_200x, data_tmp) # Agrego datos al DataFrame general
-  }
-}
+</div>
+<div id="cargo-listado-de-archivos-del-directorio-descomprimido" class="section level5">
+<h5>Cargo listado de archivos del directorio descomprimido</h5>
+<pre class="r"><code># Obtengo listado de archivos (nombre completo)
+paths &lt;- dir(temp3, pattern = &quot;\\.csv$&quot;, full.names = TRUE) 
+paths &lt;- set_names(paths, basename(paths))
 
-head(data_200x)</code></pre>
+# Cargo los datos de todos los .csv en un solo DataFrame:
+data_200x_orig &lt;- map_df(paths, ~read_csv(., col_types = cols(
+  edo = col_character(),
+  trans_Total = col_double(),
+  trans_Mujeres = col_double(),
+  trans_Hombres = col_double(),
+  noTrans_Total = col_double(),
+  noTrans_Mujeres = col_double(),
+  noTrans_Hombres = col_double(),
+  lesiones_Total = col_double(),
+  lesiones_Mujeres = col_double(),
+  lesiones_Hombres = col_double())), .id = &quot;filename&quot;)
+
+head(data_200x_orig)</code></pre>
 <pre><code>## # A tibble: 6 x 11
-##                   edo trans_Total trans_Mujeres trans_Hombres
-##                 &lt;chr&gt;       &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
-## 1      Aguascalientes        63.0          54.8          72.5
-## 2     Baja California        89.2          63.9         115.1
-## 3 Baja California Sur        76.6          61.5          91.3
-## 4            Campeche        54.6          44.9          64.1
-## 5            Coahuila        60.0          51.7          69.3
-## 6              Colima        61.1          51.0          72.1
-## # ... with 7 more variables: noTrans_Total &lt;dbl&gt;, noTrans_Mujeres &lt;dbl&gt;,
+##   filename                 edo trans_Total trans_Mujeres trans_Hombres
+##      &lt;chr&gt;               &lt;chr&gt;       &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+## 1 2000.csv      Aguascalientes        63.0          54.8          72.5
+## 2 2000.csv     Baja California        89.2          63.9         115.1
+## 3 2000.csv Baja California Sur        76.6          61.5          91.3
+## 4 2000.csv            Campeche        54.6          44.9          64.1
+## 5 2000.csv            Coahuila        60.0          51.7          69.3
+## 6 2000.csv              Colima        61.1          51.0          72.1
+## # ... with 6 more variables: noTrans_Total &lt;dbl&gt;, noTrans_Mujeres &lt;dbl&gt;,
 ## #   noTrans_Hombres &lt;dbl&gt;, lesiones_Total &lt;dbl&gt;, lesiones_Mujeres &lt;dbl&gt;,
-## #   lesiones_Hombres &lt;dbl&gt;, annio &lt;chr&gt;</code></pre>
+## #   lesiones_Hombres &lt;dbl&gt;</code></pre>
+</div>
+<div id="opcion-1-1" class="section level5">
+<h5>Opción 1:</h5>
+<p>Cargo archivos .csv del directorio descomprimido:</p>
+<pre class="r"><code># URL con .zip
+url &lt;- &quot;https://data.diegovalle.net/hoyodecrimen/cuadrantes.csv.zip&quot;
+
+# Defino directorios temporales:
+temp &lt;- tempfile()
+temp2 &lt;- tempfile()
+
+# Obtengo archivo .zip y lo descomprimo:
+download.file(url, temp)
+unzip(zipfile = temp, exdir = temp2)
+
+# Obtengo archivos con los datos:
+crime_lat_long &lt;- read_csv(file.path(temp2, &quot;/clean-data/crime-lat-long.csv&quot;), col_types = cols())</code></pre>
+<pre><code>## Warning in rbind(names(probs), probs_f): number of columns of result is not
+## a multiple of vector length (arg 1)</code></pre>
+<pre><code>## Warning: 10 parsing failures.
+## row # A tibble: 5 x 5 col     row   col   expected actual expected   &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt; actual 1 20223  hour time like   21510 file 2 59310  hour time like   15470 row 3 61494  hour time like   23190 col 4 61496  hour time like   00250 expected 5 61497  hour time like   10490 actual # ... with 1 more variables: file &lt;chr&gt;
+## ... ................. ... ............................... ........ ............................... ...... ............................... .... ............................... ... ............................... ... ............................... ........ ............................... ...... .......................................
+## See problems(...) for more details.</code></pre>
+<pre class="r"><code>crime_lat_long &lt;- arrange(crime_lat_long, date, cuadrante, crime)
+head(crime_lat_long, n=10)</code></pre>
+<pre><code>## # A tibble: 10 x 8
+##    cuadrante                           crime       date     hour  year
+##        &lt;chr&gt;                           &lt;chr&gt;     &lt;date&gt;   &lt;time&gt; &lt;int&gt;
+##  1  C-2.1.13             ROBO A NEGOCIO C.V. 2013-01-01 22:20:00  2013
+##  2  C-2.1.18             ROBO A NEGOCIO C.V. 2013-01-01 22:56:00  2013
+##  3   C-2.1.4             ROBO A NEGOCIO C.V. 2013-01-01 11:05:00  2013
+##  4   C-2.1.8          ROBO A TRANSEUNTE C.V. 2013-01-01 04:10:00  2013
+##  5  C-2.4.15 ROBO DE VEHICULO AUTOMOTOR S.V. 2013-01-01 19:05:00  2013
+##  6   C-2.4.8      LESIONES POR ARMA DE FUEGO 2013-01-01 17:31:00  2013
+##  7   C-2.5.3          ROBO A TRANSEUNTE C.V. 2013-01-01 11:33:00  2013
+##  8   C-2.5.4          ROBO A TRANSEUNTE C.V. 2013-01-01 21:57:00  2013
+##  9  N-1.1.18                       VIOLACION 2013-01-01 10:07:00  2013
+## 10   N-1.1.9          ROBO A TRANSEUNTE C.V. 2013-01-01 11:18:00  2013
+## # ... with 3 more variables: month &lt;int&gt;, lat &lt;dbl&gt;, long &lt;dbl&gt;</code></pre>
+<pre class="r"><code>cuad_hdcrime &lt;- read_csv(file.path(temp2, &quot;/clean-data/cuadrantes-hoyodecrimen.csv&quot;), col_types = cols())
+cuad_hdcrime &lt;- arrange(cuad_hdcrime, date, cuadrante, crime)
+head(cuad_hdcrime)</code></pre>
+<pre><code>## # A tibble: 6 x 16
+##   municipio         cuadrante                         crime       date
+##       &lt;chr&gt;             &lt;chr&gt;                         &lt;chr&gt;     &lt;date&gt;
+## 1      &lt;NA&gt; (NO ESPECIFICADO)              HOMICIDIO DOLOSO 2013-01-01
+## 2      &lt;NA&gt; (NO ESPECIFICADO)    LESIONES POR ARMA DE FUEGO 2013-01-01
+## 3      &lt;NA&gt; (NO ESPECIFICADO)    ROBO A BORDO DE METRO C.V. 2013-01-01
+## 4      &lt;NA&gt; (NO ESPECIFICADO)    ROBO A BORDO DE METRO S.V. 2013-01-01
+## 5      &lt;NA&gt; (NO ESPECIFICADO) ROBO A BORDO DE MICROBUS C.V. 2013-01-01
+## 6      &lt;NA&gt; (NO ESPECIFICADO) ROBO A BORDO DE MICROBUS S.V. 2013-01-01
+## # ... with 12 more variables: count &lt;int&gt;, year &lt;int&gt;, zona &lt;chr&gt;,
+## #   cve_zona &lt;chr&gt;, no_region &lt;int&gt;, sector1 &lt;chr&gt;, sector2 &lt;chr&gt;,
+## #   sector &lt;chr&gt;, cve_sector &lt;int&gt;, no_cuadrante &lt;int&gt;, population &lt;int&gt;,
+## #   cve_mun &lt;int&gt;</code></pre>
 <hr />
+</div>
+</div>
+<div id="paquetes" class="section level4">
+<h4>Paquetes:</h4>
+<p>.- lubridate: librería para trabajar con Fechas y Tiempo.<br />
+.- profvis: La función system.time supone que sabes donde buscar, es decir, que expresiones debes evaluar, una función que puede ser más útil cuando uno desconoce cuál es la función que alenta un programa es <code>profvis()</code> (paquete `profvis).<br />
+.-</p>
+<hr />
+</div>
 
 
 
