@@ -7,7 +7,7 @@ output: html_document
 
 ---  
 
-**Verificar instalación de paquete**  
+#### Verificar instalación de paquete
 Valida si un paquete se encuentra instalado. Si no lo está, lo instala.  
 ```{r}
 if(!require(dplyr, quietly = TRUE, warn.conflicts = FALSE) ){
@@ -21,7 +21,7 @@ library(tidyverse)
 
 ---  
 
-**Caputrar excepxión al leer un archivo:**  
+#### Caputrar excepxión al leer un archivo:
 Lee un archivo en el directorio de trabajo. Si el archivo no existe, lo descarga al directorio y lo abre.  
 ```{r}
 # Armo array con nombres:
@@ -44,7 +44,7 @@ head(dat_housing)
 ---  
 
 #### Descargo .ZIP y lo descomprimo
-#####Opción 1:
+##### Opción 1:
 Del .zip obtengo lista de archivos .csv:
 ```{r}
 # URL con .zip
@@ -66,7 +66,7 @@ print("- Lista de archivos .CSV:")
 csv_list
 ```
 
-#####Cargo listado de archivos del directorio descomprimido
+##### Cargo listado de archivos del directorio descomprimido
 ```{r}
 # Obtengo listado de archivos (nombre completo)
 paths <- dir(temp3, pattern = "\\.csv$", full.names = TRUE) 
@@ -90,7 +90,7 @@ head(data_200x_orig)
 
 
 
-#####Opción 1:
+##### Opción 1:
 Cargo archivos .csv del directorio descomprimido:
 ```{r}
 # URL con .zip
@@ -117,7 +117,7 @@ head(cuad_hdcrime)
 
 ---   
 
-####Paquetes:  
+#### Paquetes:  
 .- lubridate: librería para trabajar con Fechas y Tiempo.  
 .- profvis:  La función system.time supone que sabes donde buscar, es decir, que expresiones debes evaluar, una función que puede ser más útil cuando uno desconoce cuál es la función que alenta un programa es `profvis()` (paquete `profvis).  
 .- 
