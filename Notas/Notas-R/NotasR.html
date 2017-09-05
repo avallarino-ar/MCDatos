@@ -118,14 +118,14 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">NotasR</h1>
 <h4 class="author"><em>AVallarino</em></h4>
-<h4 class="date"><em>27/8/2017</em></h4>
 
 </div>
 
 
 <hr />
-<p><strong>Verificar instalación de paquete</strong><br />
-Valida si un paquete se encuentra instalado. Si no lo está, lo instala.</p>
+<div id="verificar-instalacion-de-paquete" class="section level4">
+<h4>Verificar instalación de paquete</h4>
+<p>Valida si un paquete se encuentra instalado. Si no lo está, lo instala.</p>
 <pre class="r"><code>if(!require(dplyr, quietly = TRUE, warn.conflicts = FALSE) ){
     install.packages('dplyr',
         dependencies = TRUE, 
@@ -148,8 +148,10 @@ Valida si un paquete se encuentra instalado. Si no lo está, lo instala.</p>
 <pre><code>## filter(): dplyr, stats
 ## lag():    dplyr, stats</code></pre>
 <hr />
-<p><strong>Caputrar excepxión al leer un archivo:</strong><br />
-Lee un archivo en el directorio de trabajo. Si el archivo no existe, lo descarga al directorio y lo abre.</p>
+</div>
+<div id="caputrar-excepxion-al-leer-un-archivo" class="section level4">
+<h4>Caputrar excepxión al leer un archivo:</h4>
+<p>Lee un archivo en el directorio de trabajo. Si el archivo no existe, lo descarga al directorio y lo abre.</p>
 <pre class="r"><code># Armo array con nombres:
 c_names &lt;- c(&quot;CRIM&quot;, &quot;ZN&quot;, &quot;INDUS&quot;, &quot;CHAS&quot;, &quot;NOX&quot;, &quot;RM&quot;, &quot;AGE&quot;, &quot;DIS&quot;, &quot;RAD&quot;, &quot;TAX&quot;, &quot;PTRATIO&quot;, &quot;B&quot;, &quot;LSTAT&quot;, &quot;MEDV&quot;)
 
@@ -180,6 +182,7 @@ head(dat_housing)</code></pre>
 ## 5  5.33 36.2
 ## 6  5.21 28.7</code></pre>
 <hr />
+</div>
 <div id="descargo-.zip-y-lo-descomprimo" class="section level4">
 <h4>Descargo .ZIP y lo descomprimo</h4>
 <div id="opcion-1" class="section level5">
@@ -239,8 +242,8 @@ head(data_200x_orig)</code></pre>
 ## #   noTrans_Hombres &lt;dbl&gt;, lesiones_Total &lt;dbl&gt;, lesiones_Mujeres &lt;dbl&gt;,
 ## #   lesiones_Hombres &lt;dbl&gt;</code></pre>
 </div>
-<div id="opcion-1-1" class="section level5">
-<h5>Opción 1:</h5>
+<div id="opcion-2" class="section level5">
+<h5>Opción 2:</h5>
 <p>Cargo archivos .csv del directorio descomprimido:</p>
 <pre class="r"><code># URL con .zip
 url &lt;- &quot;https://data.diegovalle.net/hoyodecrimen/cuadrantes.csv.zip&quot;
