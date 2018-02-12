@@ -1,4 +1,6 @@
-#!/usr/bin/python
+#!/usr/bin/python3
+
+# 2: JOIN entre archivos:  airlines.csv  y  flights.csv
 
 # airlines.csv: IATA_CODE	AIRLINE
 # airports.csv: IATA_CODE	AIRPORT	CITY	STATE	COUNTRY	LATITUDE	LONGITUDE
@@ -7,9 +9,6 @@
 #				WHEELS_OFF	SCHEDULED_TIME	ELAPSED_TIME	AIR_TIME	DISTANCE	WHEELS_ON	TAXI_IN	
 # 				SCHEDULED_ARRIVAL	ARRIVAL_TIME	ARRIVAL_DELAY	DIVERTED	CANCELLED	CANCELLATION_REASON
 # 				AIR_SYSTEM_DELAY	SECURITY_DELAY	AIRLINE_DELAY	LATE_AIRCRAFT_DELAY	WEATHER_DELAY
-
-
-# Exec: cat /Volumes/sd_avallarino/tareas/MGE/flights/airlines.csv /Volumes/sd_avallarino/tareas/MGE/flights/flights_50.csv | python3 flights_map.py | sort    
 
 import sys
 for line in sys.stdin:
@@ -32,5 +31,3 @@ for line in sys.stdin:
 		destination_airport = splits[8]
 
 	print( '%s\t%s\t%s\t%s\t%s' % (airline_code, airline, flight_nro, origin_airport, destination_airport)) 
-
-	#print (airline_code + "\t" + airline + "\t" + flight_nro + "\t" + origin_airport + "\t" +  destination_airport)

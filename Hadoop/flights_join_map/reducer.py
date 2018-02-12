@@ -1,15 +1,19 @@
-#!/usr/bin/env python
-  
-# Exec: 
-# cat /Volumes/sd_avallarino/tareas/MGE/flights/airlines.csv /Volumes/sd_avallarino/tareas/MGE/flights/flights_50.csv | python3 flights_map.py | sort | python3 flights_reduce.py  
+#!/usr/bin/python3
+
+# 2: JOIN entre archivos:  airlines.csv  y  flights.csv
 
 import sys
   
+lines = sys.stdin.readlines()           
+lines.sort()                
+
 current_airline_code = "-1"
 current_airline = "-1"
- 
+
+print( 'COD.\tAEROLINEA\tNRO.VUELO\tORIGEN\tDESTINO') 
+
 # input comes from STDIN
-for line in sys.stdin:
+for line in lines:
     # remove leading and trailing whitespace
     line = line.strip()
      
