@@ -11,47 +11,21 @@
 # 				AIR_SYSTEM_DELAY	SECURITY_DELAY	AIRLINE_DELAY	LATE_AIRCRAFT_DELAY	WEATHER_DELAY
 
 import sys
-for line in sys.stdin:
-    # Setting some defaults
-	airline_code = " "
-	airline = "zz"
-	flight_nro = "-1"
-	origin_airport = "-1"
-	destination_airport = "-1"
-	departure_time = 0
-	departure_delay = 0 
-	arrival_time = 0
-	arrival_delay = 0
 
+for line in sys.stdin:
+	cancel = "-"
+	name = "zz"
+	
 	line = line.strip()
 	splits = line.split(",")
-	if len(splits) == 2: # Transactions have more columns than users
-		airline_code = splits[0]
-		airline = splits[1]
+	if len(splits) == 2:
+		# De airlines.csv se obtiene Codigo y nombre de la aerolinea:
+		code = splits[0]	# IATA_CODE
+		name = splits[1]	# AIRLINE
+		
 	else: 
-		airline_code = splits[4]
-		flight_nro = splits[5]
-		origin_airport = splits[7]
-		destination_airport = splits[8]
-		departure_time = splits[10]	
-		departure_delay = splits[11]		
-		arrival_time = splits[21] 
-		arrival_delay = splits[22]
+		# De flights.csv se obtiene Codigo y si el vuelo fue cancelado o no: 
+		code = splits[4]	# AIRLINE
+		cancel = splits[24]	# CANCELLED
 
-		if departure_time == "":
-			departure_time = '-'
-
-		if departure_delay == "":
-			departure_delay = '-'
-
-		if arrival_time == "":
-			arrival_time = '-'
-			
-		if arrival_delay == "":
-			arrival_delay = '-'
-
-	print( '%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s' % (airline_code, airline, flight_nro, origin_airport, destination_airport, departure_time, departure_delay, arrival_time, arrival_delay)) 
-
-
-
-
+	print( '%s\t%s\t%s' % (code, name, cancel)) 
