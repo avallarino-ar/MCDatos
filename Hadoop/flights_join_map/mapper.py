@@ -14,7 +14,7 @@ import sys
 
 for line in sys.stdin:
 	cancel = "-"
-	name = "zz"
+	name = "Unknown_Airline"
 	
 	line = line.strip()
 	splits = line.split(",")
@@ -22,10 +22,10 @@ for line in sys.stdin:
 		# De airlines.csv se obtiene Codigo y nombre de la aerolinea:
 		code = splits[0]	# IATA_CODE
 		name = splits[1]	# AIRLINE
-		
+		print( '%s\t%s\t%s' % (code, name, cancel)) 
 	else: 
 		# De flights.csv se obtiene Codigo y si el vuelo fue cancelado o no: 
 		code = splits[4]	# AIRLINE
 		cancel = splits[24]	# CANCELLED
-
-	print( '%s\t%s\t%s' % (code, name, cancel)) 
+		if cancel.strip() == "1":		
+			print( '%s\t%s\t%s' % (code, name, cancel)) 

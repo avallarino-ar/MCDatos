@@ -4,28 +4,31 @@
 
 import sys
   
-lines = sys.stdin.readlines()           
+lines = sys.stdin.readlines()          
 lines.sort()                
 
 previous = None
 name_prev = None
 sum = 0
 
-print( 'AEROLINEA\tCANT.CANCELACIONES') 
+print( 'CODE\tAEROLINEA\tCANT.CANCELACIONES') 
 
 # Para cada aerolinea se cuenta cuantos vuelos canceladso tuvo 
 for line in lines:
 
-  code, name, cancel = line.split('\t') 
-  if code != previous:
-      if previous is not None:      	
-      	print(name_prev + '\t' + str(sum))     
-      previous = code    
-      name_prev = name 
-      sum = 0
+	code, name, cancel = line.split('\t') 
+	if code != previous:
+		if previous is not None:      	
+			print(previous + '\t' + name_prev + '\t' + str(sum))     
+		previous = code    
+		name_prev = name 
+		sum = 0
 
-  if cancel.strip() == "1":
-  	sum += 1
+	valor = cancel.strip()
+	if valor != "-":
+		valor = int(valor)
+	if valor == 1:
+		sum += valor
 
 # Retorna nombde de la aerolinea y cantidad de vuelos cancelados
-print(name_prev + '\t' + str(sum))    	
+print(code + '\t' + name_prev + '\t' + str(sum))    	
