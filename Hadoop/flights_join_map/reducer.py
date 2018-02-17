@@ -4,31 +4,46 @@
 
 import sys
   
-lines = sys.stdin.readlines()          
-lines.sort()                
+current_airline_code = ""
+current_airline = ""
 
-previous = None
-name_prev = None
-sum = 0
+lines = sys.stdin.readlines()           
+lines.sort()
 
-print( 'CODE\tAEROLINEA\tCANT.CANCELACIONES') 
+output = list();
 
-# Para cada aerolinea se cuenta cuantos vuelos canceladso tuvo 
+# Cabeceras:
+header = ("CODE\tAIRLINE\tYEAR\tMONTH\tDAY\tDAY_OF_WEEK\tFLIGHT_NUMBER" +
+"TAIL_NUMBER\tORIGIN_AIRPORT\tDESTINATION_AIRPORT\tSCHEDULED_DEPARTURE" +
+"DEPARTURE_TIME\tDEPARTURE_DELAY\tTAXI_OUT\tWHEELS_OFF\tSCHEDULED_TIME" +
+"ELAPSED_TIME\tAIR_TIME\tDISTANCE\tWHEELS_ON\tTAXI_IN\tSCHEDULED_ARRIVAL" +
+"ARRIVAL_TIME\tARRIVAL_DELAY\tDIVERTED\tCANCELLED\tCANCELLATION_REASON" +
+"AIR_SYSTEM_DELAY\tSECURITY_DELAY\tAIRLINE_DELAY\tLATE_AIRCRAFT_DELAY\tWEATHER_DELAY")
+print(header)
+
+# input comes from STDIN
 for line in lines:
 
-	code, name, cancel = line.split('\t') 
-	if code != previous:
-		if previous is not None:      	
-			print(previous + '\t' + name_prev + '\t' + str(sum))     
-		previous = code    
-		name_prev = name 
-		sum = 0
+    # Elimino espacios
+	line = line.strip()
+     
+    # Separo campos por TAB
+	splits = line.split("\t")
+	if len(splits) == 3:
+		# Obtengo codigo de la aerolinea
+		current_airline_code = splits[1]
+		# Obtengo Nombre 
+		current_airline = splits[2]
+		
+	else:
+		# Asigno codigo de la aerolinea
+		output.append(current_airline_code)
+		# Obtengo Nombre 
+		output.append(current_airline)
+		# Agrego el resto de los campos para generar la salida
+		output[2:len(splits)] = splits[2:len(splits)]   
+		# Salida:
+		print('\t'.join(output))
 
-	valor = cancel.strip()
-	if valor != "-":
-		valor = int(valor)
-	if valor == 1:
-		sum += valor
+	output = []
 
-# Retorna nombde de la aerolinea y cantidad de vuelos cancelados
-print(code + '\t' + name_prev + '\t' + str(sum))    	

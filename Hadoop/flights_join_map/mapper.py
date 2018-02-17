@@ -10,22 +10,33 @@
 # 				SCHEDULED_ARRIVAL	ARRIVAL_TIME	ARRIVAL_DELAY	DIVERTED	CANCELLED	CANCELLATION_REASON
 # 				AIR_SYSTEM_DELAY	SECURITY_DELAY	AIRLINE_DELAY	LATE_AIRCRAFT_DELAY	WEATHER_DELAY
 
-import sys
+output = list();
 
+import sys
 for line in sys.stdin:
-	cancel = "-"
-	name = "Unknown_Airline"
 	
-	line = line.strip()
+	# Elimino espacios
+	line = line.strip()	
+	# Separo campos por ",":
 	splits = line.split(",")
-	if len(splits) == 2:
-		# De airlines.csv se obtiene Codigo y nombre de la aerolinea:
-		code = splits[0]	# IATA_CODE
-		name = splits[1]	# AIRLINE
-		print( '%s\t%s\t%s' % (code, name, cancel)) 
-	else: 
-		# De flights.csv se obtiene Codigo y si el vuelo fue cancelado o no: 
-		code = splits[4]	# AIRLINE
-		cancel = splits[24]	# CANCELLED
-		if cancel.strip() == "1":		
-			print( '%s\t%s\t%s' % (code, name, cancel)) 
+	if len(splits) == 2:		
+		# Genero key con la cual se ordenarán los datos:
+		output = [splits[0]  + "1"]
+		# Agrego campos a continuación del Key:
+		output[1:len(splits)] = splits		
+		# Genero salida con campos separados por TAB:
+		print('\t'.join(output))			
+
+	else:						
+		# Genero key con la cual se ordenarán los datos
+		output = [splits[4] + "2"]			
+		# Agrego código al inico:
+		output.append(splits[4])			
+		# Elimino codigo:
+		del splits[4]						
+		# Agrego campos a continuación del Key:
+		output[2:len(splits)] = splits   	
+		# Genero salida con campos separados por TAB:
+		print('\t'.join(output))			
+
+	output = []
