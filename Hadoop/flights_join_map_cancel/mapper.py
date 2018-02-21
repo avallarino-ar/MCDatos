@@ -10,22 +10,32 @@
 # 				SCHEDULED_ARRIVAL	ARRIVAL_TIME	ARRIVAL_DELAY	DIVERTED	CANCELLED	CANCELLATION_REASON
 # 				AIR_SYSTEM_DELAY	SECURITY_DELAY	AIRLINE_DELAY	LATE_AIRCRAFT_DELAY	WEATHER_DELAY
 
-import sys
+output = list();
+airlines_csv = 'airlines.csv'
 
+# Cargo archivo de aerolineas:
+airlines = {}
+list_file = open(airlines_csv)
+list_dm = set(line.strip() for line in list_file)
+list_file.close()
+
+# Paso SET a DICT:
+for item in list_dm:
+    splits = item.split(",")
+    code = splits[0]
+    name = splits[1]
+    airlines[code] = name
+
+import sys
 for line in sys.stdin:
-	cancel = "-"
-	name = "Unknown_Airline"
-	
-	line = line.strip()
+	# Elimino espacios
+	line = line.strip()	
+	# Separo campos por ",":
 	splits = line.split(",")
-	if len(splits) == 2:
-		# De airlines.csv se obtiene Codigo y nombre de la aerolinea:
-		code = splits[0]	# IATA_CODE
-		name = splits[1]	# AIRLINE
-		print( '%s\t%s\t%s' % (code, name, cancel)) 
-	else: 
-		# De flights.csv se obtiene Codigo y si el vuelo fue cancelado o no: 
-		code = splits[4]	# AIRLINE
-		cancel = splits[24]	# CANCELLED
-		if cancel.strip() == "1":		
-			print( '%s\t%s\t%s' % (code, name, cancel)) 
+
+	# De flights.csv se obtiene Codigo y si el vuelo fue cancelado o no: 
+	code = splits[4]			# AIRLINE
+	name = airlines.get(code) 	# Nombre de la aerolinea
+	cancel = splits[24]			# CANCELLED
+	if cancel.strip() == "1":		
+		print("{}\t{}\t{}".format(code, name, cancel))

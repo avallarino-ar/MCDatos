@@ -31,4 +31,4 @@ for line in lines:
 		sum += valor
 
 # Retorna nombde de la aerolinea y cantidad de vuelos cancelados
-print(code + '\t' + name_prev + '\t' + str(sum))    	
+print(code + '\t' + name_prev + '\t' + str(sum))   
