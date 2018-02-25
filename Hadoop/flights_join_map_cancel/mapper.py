@@ -11,32 +11,31 @@
 # 				AIR_SYSTEM_DELAY	SECURITY_DELAY	AIRLINE_DELAY	LATE_AIRCRAFT_DELAY	WEATHER_DELAY
 
 output = list();
+airlines_csv = 'airlines.csv'
+
+# Cargo archivo de aerolineas:
+airlines = {}
+list_file = open(airlines_csv)
+list_dm = set(line.strip() for line in list_file)
+list_file.close()
+
+# Paso SET a DICT:
+for item in list_dm:
+    splits = item.split(",")
+    code = splits[0]
+    name = splits[1]
+    airlines[code] = name
 
 import sys
 for line in sys.stdin:
-	
 	# Elimino espacios
 	line = line.strip()	
 	# Separo campos por ",":
 	splits = line.split(",")
-	if len(splits) == 2:		
-		# Genero key con la cual se ordenarán los datos:
-		output = [splits[0]  + "1"]
-		# Agrego campos a continuación del Key:
-		output[1:len(splits)] = splits		
-		# Genero salida con campos separados por TAB:
-		print('\t'.join(output))			
 
-	else:						
-		# Genero key con la cual se ordenarán los datos
-		output = [splits[4] + "2"]			
-		# Agrego código al inico:
-		output.append(splits[4])			
-		# Elimino codigo:
-		del splits[4]						
-		# Agrego campos a continuación del Key:
-		output[2:len(splits)] = splits   	
-		# Genero salida con campos separados por TAB:
-		print('\t'.join(output))			
-
-	output = []
+	# De flights.csv se obtiene Codigo y si el vuelo fue cancelado o no: 
+	code = splits[4]			# AIRLINE
+	name = airlines.get(code) 	# Nombre de la aerolinea
+	cancel = splits[24]			# CANCELLED
+	if cancel.strip() == "1":		
+		print("{}\t{}\t{}".format(code, name, cancel))
